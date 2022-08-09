@@ -60,7 +60,7 @@ label {
         &-text {
             grid-area: txt;
             @include flex(space-between, center);
-            padding-top: clamp(0rem, 1vw, 10rem);
+            padding-top: clamp(0rem, 5vw, 10rem);
             flex-direction: column;
 
             &-container {
@@ -206,11 +206,7 @@ label {
         left: 0;
     }
 }
-.sidebar-menu {
-    position: absolute;
-    inset: 0;
-    background-color: rgb(255, 255, 255);
-}
+
 
 .dropdown-btn{
     transition: all .2s;
