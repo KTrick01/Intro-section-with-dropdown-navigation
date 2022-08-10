@@ -166,10 +166,6 @@ label {
   top: 2px;
 }
 
-#check {
-  display: none;
-}
-
 .submenu__container {
   /*Position relative so the arrow icon can be positioned easier with position absolute*/
   position: relative;
@@ -216,6 +212,18 @@ label {
   max-width: clamp(50px, 20vw, 80px);
 }
 
+.active-states:active {
+  transform: scale(1.05);
+}
+
+.menu-btn,
+.close-btn,
+#check,
+.mobile-only,
+.mobile-only-logo {
+  display: none;
+}
+
 @media (hover: hover) {
   .dropdown-btn:hover {
     transform: translateX(5%);
@@ -229,15 +237,100 @@ label {
   }
 }
 @media (max-width: 1000px) {
+  .menu-btn {
+    z-index: 9999;
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  .btn {
+    transition: 0.3s;
+    background-image: url("../images/icon-menu.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35px;
+    aspect-ratio: 16/9;
+  }
+  .intro {
+    display: flex;
+    justify-content: space-between;
+  }
+  .close-btn {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  .intro__logo-container.mobile-only-logo,
+.close-btn {
+    display: block;
+  }
   .center {
     margin: 0 auto;
     max-width: 800px;
   }
-  .nav-btns {
+  .intro__header {
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .intro__header-dropdown {
+    box-shadow: 0 0 0 900px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    flex-direction: column;
+    gap: 1.5rem;
+    inset: 0;
+    left: 30%;
+    background-color: white;
+    justify-content: start;
+    padding: 5rem 1rem 0rem;
+    align-items: flex-start;
+  }
+  .intro__header-register-btn {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  .intro__header-login-area,
+.intro__header .intro__logo-container {
     display: none;
   }
-  .intro__header-login-area {
-    display: none;
+  .menu-btn:checked ~ .intro__header {
+    visibility: visible;
+    opacity: 1;
+  }
+  .menu-btn:checked ~ .btn {
+    aspect-ratio: 1;
+    background-image: url("../images/icon-close-menu.svg");
+  }
+  .mobile-only {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .submenu {
+    position: static;
+  }
+  #company:checked ~ .submenu {
+    position: static;
+    box-shadow: none;
+    padding: 1.5rem 1rem 0rem;
+  }
+  #features:checked ~ .submenu {
+    position: static;
+    box-shadow: none;
+    padding: 1.5rem 1rem 0rem;
+  }
+  .features__txt::after {
+    right: 20px;
+  }
+  .company__txt::after {
+    right: -17px;
   }
   .intro__main {
     grid-template-areas: "img" "txt";

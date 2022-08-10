@@ -17,31 +17,41 @@
 
   <main class="main">
     <div class="intro">
+      <figure class="intro__logo-container mobile-only-logo">
+        <img src="images/logo.svg" alt="Logo">
+      </figure>
+      <input type="checkbox" id="check" class="menu-btn">
+
+      <label for="check" class="menu-btn btn">
+
+      </label>
 
       <header class="intro__header">
-
+        
         <div class="intro__header-dropdown">
 
           <figure class="intro__logo-container">
             <img src="images/logo.svg" alt="Logo">
           </figure>
 
+
+
           <label class="submenu__container nav-btns">
             <input type="checkbox" id="features" name="check">
 
-            <p class="features__txt arrow dropdown-btn">Features</p>
+            <p class="features__txt arrow dropdown-btn active-states">Features</p>
 
             <div class="submenu__features submenu">
 
               <ul>
 
-                <li class="todo-list"><a href="#" class="dropdown-btn"> <img src="images/icon-todo.svg" alt=""> Todo
+                <li class="todo-list"><a href="#todo" class="dropdown-btn"> <img src="images/icon-todo.svg" alt=""> Todo
                     List</a></li>
-                <li class="calendar"><a href="#" class="dropdown-btn"><img src="images/icon-calendar.svg"
+                <li class="calendar"><a href="#calendar" class="dropdown-btn"><img src="images/icon-calendar.svg"
                       alt="">Calendar</a></li>
-                <li class="reminders"><a href="#" class="dropdown-btn"><img src="images/icon-reminders.svg"
+                <li class="reminders"><a href="#reminders" class="dropdown-btn"><img src="images/icon-reminders.svg"
                       alt="">Reminders</a></li>
-                <li class="plan"><a href="#" class="dropdown-btn"><img src="images/icon-planning.svg"
+                <li class="plan"><a href="#plan" class="dropdown-btn"><img src="images/icon-planning.svg"
                       alt="">Planning</a></li>
 
               </ul>
@@ -52,15 +62,15 @@
 
           <label class="submenu__container nav-btns">
             <input type="checkbox" id="company" name="check">
-            <p class="company__txt arrow dropdown-btn">Company</p>
+            <p class="company__txt arrow dropdown-btn active-states">Company</p>
 
             <div class="submenu__company submenu">
 
               <ul>
 
-                <li><a href="#" class="dropdown-btn">History</a> </li>
-                <li><a href="#" class="dropdown-btn">Our blog</a></li>
-                <li><a href="#" class="dropdown-btn">About</a></li>
+                <li><a href="#history" class="dropdown-btn active-states">History</a> </li>
+                <li><a href="#blog" class="dropdown-btn active-states">Our blog</a></li>
+                <li><a href="#about" class="dropdown-btn active-states">About</a></li>
 
               </ul>
 
@@ -69,20 +79,29 @@
           </label>
 
 
-          <a href="#" class="dropdown-btn nav-btns">Careers</a>
+          <a href="#" class="dropdown-btn nav-btns active-states">Careers</a>
 
 
-          <a href="#" class="dropdown-btn nav-btns">About</p>
+          <a href="#" class="dropdown-btn nav-btns active-states">About</a>
+
+          <div class="intro__header-login-area mobile-only">
+            <a href="#" class="intro__header-login-btn dropdown-btn active-states">Login</a>
+            <a href="#" class="intro__header-register-btn buttons active-states">Register</a>
+          </div>
 
 
         </div>
 
         <div class="intro__header-login-area">
-          <a href="#" class="intro__header-login-btn dropdown-btn">Login</a>
-          <a href="#" class="intro__header-register-btn buttons">Register</a>
+          <a href="#" class="intro__header-login-btn dropdown-btn active-states">Login</a>
+          <a href="#" class="intro__header-register-btn buttons active-states">Register</a>
         </div>
 
+
+
       </header>
+
+
 
     </div>
 
@@ -96,7 +115,7 @@
               processes,
               create team rituals, and watch productivity soar.
             </p>
-            <a href="#" class="intro__main-text-button buttons">Learn more</a>
+            <a href="#" class="intro__main-text-button buttons active-states">Learn more</a>
 
           </div>
 

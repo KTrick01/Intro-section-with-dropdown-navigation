@@ -19,6 +19,9 @@ label {
     cursor: pointer;
 }
 
+
+
+
 .intro {
     padding: 1rem;
 
@@ -37,7 +40,8 @@ label {
 
         &-login-area {
             @include flex(center, center);
-            gap: clamp(1rem, 4vw, 3rem);;
+            gap: clamp(1rem, 4vw, 3rem);
+            ;
         }
 
         &-register-btn {
@@ -46,6 +50,7 @@ label {
             background-color: $Almost-Black;
             color: white;
             border-radius: 1rem;
+            
         }
     }
 
@@ -83,7 +88,6 @@ label {
                 transition: .3s;
                 padding: 1rem 2rem;
                 color: white;
-                
                 font-weight: bold;
                 background-color: $Almost-Black;
                 border-radius: 1rem;
@@ -91,9 +95,8 @@ label {
 
             &-images {
                 @include flex(space-between, center);
-                flex-wrap:wrap;
+                flex-wrap: wrap;
                 width: 100%;
-                
             }
         }
 
@@ -166,10 +169,6 @@ label {
     }
 }
 
-#check {
-    display: none;
-}
-
 .submenu__container {
     /*Position relative so the arrow icon can be positioned easier with position absolute*/
     position: relative;
@@ -207,27 +206,34 @@ label {
     }
 }
 
-
-.dropdown-btn{
+.dropdown-btn {
     transition: all .2s;
-   
 }
+
 .client-icons {
-   
     width: 100%;
     height: auto;
     max-width: clamp(50px, 20vw, 80px);
 }
+.active-states {
+    &:active {
+        transform: scale(1.05);
+    }
+}
+
+.menu-btn,
+.close-btn,
+#check,
+.mobile-only,
+.mobile-only-logo {
+    display: none;
+}
 
 @media (hover:hover) {
-
-    
     .dropdown-btn:hover {
         transform: translateX(5%);
         color: $Almost-Black;
-        
     }
-    
 
     .buttons:hover {
         color: $Almost-Black;
@@ -238,28 +244,131 @@ label {
 }
 
 @media (max-width: 1000px) {
+    .menu-btn {
+        z-index: 9999;
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .btn {
+        transition: .3s;
+        background-image: url("../images/icon-menu.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 35px;
+        aspect-ratio: 16/9;
+    }
+
+    .intro {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .close-btn {
+        display: none;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .intro__logo-container.mobile-only-logo,
+    .close-btn {
+        display: block
+    }
+
     .center {
         margin: 0 auto;
         max-width: 800px;
     }
-    .nav-btns {
-        display: none;
+
+    .intro__header {
+        transition: .3s;
+        visibility:hidden;
+        opacity: 0;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        &-dropdown {
+            box-shadow: 0 0 0 900px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            flex-direction: column;
+            gap: 1.5rem;
+            inset: 0;
+            left: 30%;
+            background-color: white;
+            justify-content: start;
+            padding: 5rem 1rem 0rem;
+            align-items: flex-start;
+        }
+
+        &-register-btn {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        &-login-area,
+        .intro__logo-container {
+            display: none;
+        }
     }
 
-    .intro__header-login-area {
-        display: none;
+    .menu-btn:checked ~ .intro__header {
+        visibility:visible;
+        opacity: 1;
+    }
+    
+
+    .menu-btn:checked ~ .btn {
+        aspect-ratio: 1;
+        background-image: url("../images/icon-close-menu.svg");
+    }
+
+    .mobile-only {
+        display: block;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .submenu {
+        position: static;
+    }
+
+    #company:checked ~ .submenu {
+        position: static;
+        box-shadow: none;
+        padding: 1.5rem 1rem 0rem;
+    }
+
+    #features:checked ~ .submenu {
+        position: static;
+        box-shadow: none;
+        padding: 1.5rem 1rem 0rem;
+    }
+
+    .features__txt::after {
+        right: 20px;
+    }
+
+    .company__txt::after {
+        right: -17px;
     }
 
     .intro__main {
-        grid-template-areas: 
-        "img"
-        "txt";
+        grid-template-areas:
+            "img"
+            "txt";
 
         &-img {
             height: auto;
             object-fit: cover;
             width: 100%;
         }
+
         &-text-container {
             text-align: center;
             align-items: center;
@@ -267,9 +376,6 @@ label {
 
         &-text {
             gap: 3rem;
-        }   
-    }  
-
-    
-    
+        }
+    }
 }
