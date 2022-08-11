@@ -303,6 +303,7 @@ label {
     opacity: 1;
   }
   .menu-btn:checked ~ .btn {
+    position: fixed;
     aspect-ratio: 1;
     background-image: url("../images/icon-close-menu.svg");
   }
